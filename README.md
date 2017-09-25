@@ -5,7 +5,7 @@ This repository shows how to use the YAML format to achieve setting decoupling, 
 
 The following settings are dynamic:
 
-* The output directory choosen for the saving of the report
+* The output directory chosen for the saving of the report
 
 * The command used to append each report to the saved files, which allows for decorators
 
