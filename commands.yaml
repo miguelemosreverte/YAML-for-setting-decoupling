@@ -1,0 +1,30 @@
+output_dir: "report/"
+save: (command) >> output_file
+
+filenames:
+  - originalMatrix.c
+  - modifiedMatrix.c
+
+transformations:
+  - '"command".replace("source_filename", "input_source_filename")'
+  - '"command".replace("report_filename", "input_report_filename")'
+
+commands:
+  main:
+    create_profile : gcc -pg -fprofile-arcs -ftest-coverage source_filename
+    execute: ./a.out 2000 2000
+    gprof: gprof a.out
+    gcov: gcov source_filename; cat source_filename.gcov
+    #valgrind: gcc -g filename;valgrind --log-fd=1 ./a.out matrixSize matrixSize
+
+  report:
+    echo_nanoseconds: head -n 7 report_filename | tail -n 1
+    flatTable: head -n 20 report_filename | tail -n 6
+
+
+cleanup:
+  extensions:
+    - out
+    - gcda
+    - gcno
+    - gcov
