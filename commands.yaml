@@ -15,7 +15,7 @@ commands:
     execute: ./a.out 2000 2000
     gprof: gprof a.out
     gcov: gcov source_filename; cat source_filename.gcov
-    #valgrind: gcc -g filename;valgrind --log-fd=1 ./a.out matrixSize matrixSize
+    valgrind: gcc -g source_filename;valgrind --log-fd=1 ./a.out 2000 2000
 
   report:
     echo_nanoseconds: head -n 7 report_filename | tail -n 1

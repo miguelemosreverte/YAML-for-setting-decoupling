@@ -25,7 +25,7 @@ if __name__ == "__main__":
 		shutil.rmtree(output_dir)
 
 	for n in range(0,args.NTimes):
-		os.system("python test.py")
+		os.system("python Report.py")
 
 	time_per_execution = {}
 	for item in os.listdir("."):
