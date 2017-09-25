@@ -18,7 +18,6 @@ class ProfileReporter:
 			self.save = data_loaded["save"]
 			self.filenames = data_loaded["filenames"]
 			self.commands = data_loaded["commands"]
-			self.transformations = data_loaded["transformations"]
 			self.cleanup = data_loaded["cleanup"]
 
 		self.create_output_folder()
@@ -39,11 +38,10 @@ class ProfileReporter:
 				#we create a Many To Many relationship between commands and filenames now
 				self.commands[command_category][command_name] = {}
 				for filename in self.filenames:
-					for commands_transformation in self.transformations:
-						command_with_specified_filename = \
-							template_command.replace("source_filename", filename)\
-							.replace("report_filename", self.output_dir + os.path.splitext(filename)[0]+'.txt')
-					 	self.commands[command_category][command_name][filename] = command_with_specified_filename
+					command_with_specified_filename = \
+						template_command.replace("source_filename", filename)\
+						.replace("report_filename", self.output_dir + os.path.splitext(filename)[0]+'.txt')
+				 	self.commands[command_category][command_name][filename] = command_with_specified_filename
 
 	def run_main(self):
 		for filename in self.filenames:

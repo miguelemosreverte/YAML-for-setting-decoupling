@@ -5,10 +5,6 @@ filenames:
   - originalMatrix.c
   - modifiedMatrix.c
 
-transformations:
-  - '"command".replace("source_filename", "input_source_filename")'
-  - '"command".replace("report_filename", "input_report_filename")'
-
 commands:
   main:
     create_profile : gcc -pg -fprofile-arcs -ftest-coverage source_filename

@@ -9,8 +9,6 @@ The following settings are dynamic:
 
 * The command used to append each report to the saved files, which allows for decorators
 
-* The transformations to be applied over the commands, ie.: The replacement of the placeholder filenames for the actual filenames
-
 * The commands used to make the profiling of the files
 
 * The files to be profiled
